@@ -1,8 +1,47 @@
 import "./style/reset.css";
 import "../Dashboard/style/dashboard.css";
 import nuKenzie from "./assets/icon/nu-kenzie.png";
+import { useState } from "react";
 
 export const Dashboard = ({ setVerify }) => {
+  const [todo, setTodo] = useState([]);
+
+  const [title, newTitle] = useState("");
+  const [type, newType] = useState("");
+  const [value, newValue] = useState(0);
+
+  const addTodo = (newTodo) => {
+    setTodo([...todo, newTodo]);
+  };
+
+  const handleTodo = (item) => {
+    const todoList = todo.filter((elem) => elem.name !== item);
+    setTodo(todoList);
+  };
+
+  const finance = () => {
+    addTodo({ name: title, value: Number(value), type: type });
+    type === "put"
+      ? valueAll(true, Number(value))
+      : valueAll(false, Number(value));
+  };
+
+  const valueAll = (verif, num) => {
+    let value = 0;
+    console.log(verif);
+    return verif ? value + num : value - num;
+  };
+
+  // const valueAll = () => {
+  //   let counter = todo.reduce((act, acc) => act + acc.value, 0);
+  //   return counter;
+  // };
+
+  // const verifyValue = ()=>{
+  //   let counter = todo.reduce((act, acc) => act + acc.value, 0);
+  //   todo.map((elem) => (elem.type != "put" ? counter - elem.value : ""));
+  // }
+
   return (
     <main>
       <link
@@ -23,22 +62,38 @@ export const Dashboard = ({ setVerify }) => {
 
       <section className="vitrine">
         <div className="vitrine-finance">
-          <form className="form">
+          <form
+            className="form"
+            onSubmit={(event) => finance(event.preventDefault())}
+          >
             <div className="form-description">
               <label htmlFor="">Descrição</label>
-              <input type="text" placeholder="Digite aqui sua descrição" />
+              <input
+                type="text"
+                placeholder="Digite aqui sua descrição"
+                onChange={(event) => newTitle(event.target.value)}
+              />
               <span>Ex: Compra de roupas</span>
             </div>
 
             <div className="form-value">
               <div className="value">
                 <label htmlFor="">Valor</label>
-                <input type="text" placeholder="1" />
+                <input
+                  type="number"
+                  placeholder="1"
+                  onChange={(event) => newValue(event.target.value)}
+                />
               </div>
 
               <div className="type">
                 <label htmlFor="">Tipo de valor</label>
-                <select name="" id="">
+                <select
+                  name=""
+                  id=""
+                  onChange={(event) => newType(event.target.value)}
+                >
+                  <option value="select">Selecione</option>
                   <option value="put">Entrada</option>
                   <option value="output">Despesas</option>
                 </select>
@@ -53,7 +108,7 @@ export const Dashboard = ({ setVerify }) => {
           <footer className="footer__value">
             <div className="footer__value-value">
               <p>Valor total:</p>
-              <span>0,00</span>
+              <span>{console.log(valueAll())}</span>
             </div>
             <span className="span__footer">O valor se refere ao saldo</span>
           </footer>
@@ -70,7 +125,49 @@ export const Dashboard = ({ setVerify }) => {
           </nav>
 
           <ul className="vitrine__ul">
-            <li className="card entry">
+            {todo.map((info, index) =>
+              info.type === "put" ? (
+                <li key={index} className="card entry">
+                  <div className="card-description">
+                    <h3>{info.name}</h3>
+                    <span>Entrada</span>
+                  </div>
+
+                  <div className="card-value">
+                    <span>{`R$ ${info.value},00`}</span>
+                    <figure>
+                      <span
+                        onClick={() => handleTodo(info.name)}
+                        class="material-symbols-outlined"
+                      >
+                        delete
+                      </span>
+                    </figure>
+                  </div>
+                </li>
+              ) : (
+                <li key={index} className="card exit">
+                  <div className="card-description">
+                    <h3>{info.name}</h3>
+                    <span>Despesas</span>
+                  </div>
+
+                  <div className="card-value">
+                    <span>{`R$ ${info.value},00`}</span>
+                    <figure>
+                      <span
+                        class="material-symbols-outlined"
+                        onClick={() => handleTodo(info.name)}
+                      >
+                        delete
+                      </span>
+                    </figure>
+                  </div>
+                </li>
+              )
+            )}
+
+            {/* <li className="card entry">
               <div className="card-description">
                 <h3>Salário - Mês Dezembro</h3>
                 <span>Entrada</span>
@@ -82,9 +179,9 @@ export const Dashboard = ({ setVerify }) => {
                   <span class="material-symbols-outlined">delete</span>
                 </figure>
               </div>
-            </li>
+            </li> */}
 
-            <li className="card exit">
+            {/* <li className="card exit">
               <div className="card-description">
                 <h3>Salário - Mês Dezembro</h3>
                 <span>Entrada</span>
@@ -96,7 +193,7 @@ export const Dashboard = ({ setVerify }) => {
                   <span class="material-symbols-outlined">delete</span>
                 </figure>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </section>
