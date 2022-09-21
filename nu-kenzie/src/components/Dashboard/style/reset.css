@@ -125,3 +125,16 @@ table {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --color-primary: #fd377e;
+  --color-secondary: #03b898;
+  --gray-1: #f8f9fa;
+  --gray-2: #e9ecef;
+  --gray-3: #868e96;
+  --gray-4: #212529;
+
+  --font-title1: 2.37rem;
+  --body: 0.75rem;
+  --headline: 1rem;
+}

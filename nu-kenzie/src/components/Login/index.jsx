@@ -1,5 +1,5 @@
-import "./style/style.css";
 import "./style/reset.css";
+import "../Login/style/login.css";
 import nuKenzie from "./assets/icon/nu-kenzie.png";
 import cardIllustration from "./assets/icon/illustration.svg";
 

@@ -18,7 +18,11 @@ function App() {
 
   return (
     <div className="App">
-      {verify ? <Dashboard /> : <Login setVerify={dashboard} />}
+      {verify ? (
+        <Dashboard setVerify={login} />
+      ) : (
+        <Login setVerify={dashboard} />
+      )}
     </div>
   );
 }

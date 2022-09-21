@@ -1,0 +1,372 @@
+header {
+  background-color: var(--gray-1);
+
+  display: flex;
+  justify-content: center;
+
+  box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
+
+  margin-bottom: 39px;
+}
+
+.container__dashboard {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+}
+
+.container__dashboard figure {
+  cursor: pointer;
+}
+
+.btnDashboard {
+  background-color: var(--gray-2);
+  color: var(--gray-4);
+
+  border: 1px solid transparent;
+  padding: 10px 15px;
+  border-radius: 8px;
+
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.btnDashboard:hover {
+  background-color: var(--gray-3);
+  transition: 0.4s;
+}
+
+.vitrine {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.vitrine-finance {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.form {
+  border: 1px solid var(--gray-2);
+  border-radius: 4px;
+  padding: 38px 26px;
+}
+
+.form-description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 17px;
+}
+
+.form-description label {
+  margin-bottom: 12px;
+
+  font-size: var(--body);
+}
+
+.form-description input {
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin-bottom: 4px;
+  outline: none;
+
+  background-color: var(--gray-1);
+
+  font-size: 1rem;
+}
+
+.form-description span {
+  font-size: var(--body);
+  color: var(--gray-3);
+}
+
+.form-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.form-value .value {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-value .value label {
+  margin-bottom: 12px;
+
+  font-size: var(--body);
+}
+
+.form-value .type {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-value .type label {
+  margin-bottom: 9px;
+
+  font-size: var(--body);
+}
+
+.form-value input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 16px;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: var(--gray-1);
+
+  background-image: url("../assets/icon/real-brasileiro.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 1.3em;
+  padding: 0 16px;
+}
+
+.form-value .type select {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+
+  background-color: var(--gray-1);
+
+  height: 48px;
+  padding: 0 16px;
+}
+
+.btn__submit__form {
+  width: 100%;
+  height: 3rem;
+
+  font-size: var(--headline);
+  font-weight: 500;
+
+  margin-top: 19px;
+
+  background-color: var(--color-primary);
+  color: var(--gray-1);
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.btn__submit__form:hover {
+  filter: opacity(0.7);
+}
+
+.footer__value {
+  border: 1px solid var(--gray-2);
+  border-radius: 4px;
+  padding: 38px 26px;
+}
+
+.footer__value-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__value-value p {
+  font-weight: 700;
+  font-size: var(--headline);
+  color: var(--gray-4);
+  margin-bottom: 10px;
+}
+
+.footer__value-value span {
+  font-weight: 700;
+  font-size: var(--headline);
+  color: var(--color-primary);
+}
+
+.span__footer {
+  font-size: var(--body);
+  color: var(--gray-4);
+}
+
+.financial__Summary {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.financial__Summary nav {
+  width: 100%;
+  margin-bottom: 34px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.financial__Summary nav h3 {
+  font-size: var(--headline);
+  font-weight: 700;
+}
+
+.btn__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 31px;
+
+  width: 100%;
+}
+
+.btn__nav button {
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background-color: var(--gray-2);
+  color: var(--gray-4);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.btn__nav button:hover {
+  color: var(--gray-1);
+  background-color: var(--color-primary);
+  transition: 0.4s;
+}
+
+.vitrine__ul {
+  width: 100%;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.vitrine__ul .card {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 22px;
+
+  background-color: var(--gray-1);
+  border-radius: 4px;
+
+  height: 87px;
+  position: relative;
+}
+
+.entry::before {
+  content: "";
+  width: 3px;
+  margin-right: 5px;
+  background-color: var(--color-secondary);
+  border: 1px solid transparent;
+  border-radius: 4px 0 0 4px;
+  color: transparent;
+}
+
+.exit::before {
+  content: "";
+  width: 3px;
+  margin-right: 5px;
+  background-color: var(--gray-2);
+  border: 1px solid transparent;
+  border-radius: 4px 0 0 4px;
+  color: transparent;
+}
+
+.vitrine__ul .card .card-description {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  justify-content: space-between;
+}
+
+.vitrine__ul .card .card-description h3 {
+  font-size: var(--headline);
+  font-weight: 700;
+}
+
+.vitrine__ul .card .card-description span {
+  font-size: var(--body);
+  font-weight: 400;
+  color: var(--gray-3);
+}
+
+.vitrine__ul .card .card-value {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 10px 8px 10px 0;
+}
+
+.vitrine__ul .card .card-value > span {
+  font-size: var(--body);
+  color: var(--gray-4);
+  margin-top: 5px;
+}
+
+.vitrine__ul .card .card-value figure span {
+  font-size: 16px;
+  background-color: var(--gray-2);
+  padding: 2px;
+  border-radius: 4px;
+  max-width: 440px;
+}
+
+@media (min-width: 440px) {
+  .vitrine__ul .card .card-value {
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .vitrine-finance {
+    width: 44%;
+    margin-bottom: 0;
+  }
+
+  .financial__Summary {
+    width: 52%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .vitrine {
+    flex-direction: row;
+    position: relative;
+  }
+
+  .financial__Summary nav {
+    flex-direction: row;
+  }
+
+  .btn__nav {
+    gap: 16px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .vitrine-finance {
+    width: 363px;
+  }
+
+  .financial__Summary {
+    width: 560px;
+  }
+}
