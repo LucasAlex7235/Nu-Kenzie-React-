@@ -22,6 +22,19 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  animation: content--nu__kenzie 1s ease-in-out;
+}
+
+@keyframes content--nu__kenzie {
+  0% {
+    transform: translateY(-300%);
+  }
+  80% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .content-title {

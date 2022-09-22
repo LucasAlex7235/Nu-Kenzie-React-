@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Login } from "./components/Login";
 import React from "react";
+
 import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 
@@ -15,6 +16,11 @@ function App() {
   const login = () => {
     setVerify(false);
   };
+
+  const title = () => {
+    document.title = "Nu Kenzie";
+  };
+  title();
 
   return (
     <div className="App">
