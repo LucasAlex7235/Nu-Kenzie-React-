@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export const Dashboard = ({ setVerify }) => {
   const [todo, setTodo] = useState([]);
+  const [temporaryList, setTemporaryList] = useState([]);
 
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
@@ -12,11 +13,26 @@ export const Dashboard = ({ setVerify }) => {
 
   const addTodo = (newTodo) => {
     setTodo([...todo, newTodo]);
+    setTemporaryList([...temporaryList, newTodo]);
   };
 
   const handleTodo = (item) => {
     const todoList = todo.filter((elem) => elem.name !== item);
     setTodo(todoList);
+    setTemporaryList(todoList);
+  };
+
+  const handleTemporary = (item) => {
+    const todoList =
+      item === "entrada"
+        ? todo.filter((elem) => elem.verify === true)
+        : todo.filter((elem) => elem.verify === false);
+    setTemporaryList(todoList);
+  };
+
+  const handleTemporaryAll = (item) => {
+    const todoList = todo.map((elem) => elem);
+    setTemporaryList(todoList);
   };
 
   const finance = () => {
@@ -113,9 +129,28 @@ export const Dashboard = ({ setVerify }) => {
           <nav>
             <h3>Resumo financeiro</h3>
             <div className="btn__nav">
-              <button>Todos</button>
-              <button>Entradas</button>
-              <button>Despesas</button>
+              <button
+                onClick={() => {
+                  handleTemporaryAll();
+                }}
+                className="select"
+              >
+                Todos
+              </button>
+              <button
+                onClick={() => {
+                  handleTemporary("entrada");
+                }}
+              >
+                Entradas
+              </button>
+              <button
+                onClick={() => {
+                  handleTemporary("despesa");
+                }}
+              >
+                Despesas
+              </button>
             </div>
           </nav>
 
@@ -146,7 +181,7 @@ export const Dashboard = ({ setVerify }) => {
             ) : (
               ""
             )}
-            {todo.map((info, index) =>
+            {temporaryList.map((info, index) =>
               info.type === "put" ? (
                 <li key={index} className="card entry">
                   <div className="card-description">

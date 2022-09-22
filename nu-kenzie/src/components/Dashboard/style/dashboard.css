@@ -247,6 +247,11 @@ header {
   transition: 0.4s;
 }
 
+.select {
+  background-color: var(--color-primary) !important;
+  color: var(--gray-1) !important;
+}
+
 .vitrine__ul {
   width: 100%;
   margin-bottom: 22px;
@@ -259,6 +264,22 @@ header {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.container__none .none {
+  animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.4);
+  }
+  100% {
+    filter: opacity(1);
+  }
 }
 
 .container__none .none .content__none {
@@ -292,6 +313,12 @@ header {
 
   height: 87px;
   position: relative;
+  transition: 0.3s;
+}
+
+.vitrine__ul .card:hover {
+  filter: opacity(0.5);
+  transition: 0.3s;
 }
 
 .entry::before {
