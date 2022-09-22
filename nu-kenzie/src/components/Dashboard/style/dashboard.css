@@ -255,6 +255,33 @@ header {
   gap: 32px;
 }
 
+.container__none {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.container__none .none .content__none {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.container__none .none .content__none #fist {
+  color: #e9ecef;
+  background-color: #e9ecef;
+  width: 60%;
+  height: 14px;
+}
+
+.container__none .none .content__none #last {
+  color: #e9ecef;
+  background-color: #e9ecef;
+  width: 30%;
+  height: 14px;
+}
+
 .vitrine__ul .card {
   display: flex;
   /* justify-content: space-between; */

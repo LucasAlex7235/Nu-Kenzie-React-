@@ -6,9 +6,9 @@ import { useState } from "react";
 export const Dashboard = ({ setVerify }) => {
   const [todo, setTodo] = useState([]);
 
-  const [title, newTitle] = useState("");
-  const [type, newType] = useState("");
-  const [value, newValue] = useState(0);
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
+  const [value, setValue] = useState(0);
 
   const addTodo = (newTodo) => {
     setTodo([...todo, newTodo]);
@@ -20,27 +20,23 @@ export const Dashboard = ({ setVerify }) => {
   };
 
   const finance = () => {
-    addTodo({ name: title, value: Number(value), type: type });
-    type === "put"
-      ? valueAll(true, Number(value))
-      : valueAll(false, Number(value));
+    addTodo({
+      name: title,
+      value: Number(value),
+      type: type,
+      verify: type != "put" ? false : true,
+    });
   };
 
-  const valueAll = (verif, num) => {
-    let value = 0;
-    console.log(verif);
-    return verif ? value + num : value - num;
+  const valueAll = () => {
+    let counter = 0;
+    todo.map((elem) =>
+      elem.verify === false
+        ? (counter = counter - elem.value)
+        : (counter = counter + elem.value)
+    );
+    return counter;
   };
-
-  // const valueAll = () => {
-  //   let counter = todo.reduce((act, acc) => act + acc.value, 0);
-  //   return counter;
-  // };
-
-  // const verifyValue = ()=>{
-  //   let counter = todo.reduce((act, acc) => act + acc.value, 0);
-  //   todo.map((elem) => (elem.type != "put" ? counter - elem.value : ""));
-  // }
 
   return (
     <main>
@@ -71,7 +67,7 @@ export const Dashboard = ({ setVerify }) => {
               <input
                 type="text"
                 placeholder="Digite aqui sua descrição"
-                onChange={(event) => newTitle(event.target.value)}
+                onChange={(event) => setTitle(event.target.value)}
               />
               <span>Ex: Compra de roupas</span>
             </div>
@@ -82,7 +78,7 @@ export const Dashboard = ({ setVerify }) => {
                 <input
                   type="number"
                   placeholder="1"
-                  onChange={(event) => newValue(event.target.value)}
+                  onChange={(event) => setValue(event.target.value)}
                 />
               </div>
 
@@ -91,11 +87,10 @@ export const Dashboard = ({ setVerify }) => {
                 <select
                   name=""
                   id=""
-                  onChange={(event) => newType(event.target.value)}
+                  onChange={(event) => setType(event.target.value)}
                 >
-                  <option value="select">Selecione</option>
-                  <option value="put">Entrada</option>
                   <option value="output">Despesas</option>
+                  <option value="put">Entrada</option>
                 </select>
               </div>
             </div>
@@ -108,7 +103,7 @@ export const Dashboard = ({ setVerify }) => {
           <footer className="footer__value">
             <div className="footer__value-value">
               <p>Valor total:</p>
-              <span>{console.log(valueAll())}</span>
+              <span>{valueAll()}</span>
             </div>
             <span className="span__footer">O valor se refere ao saldo</span>
           </footer>
@@ -125,6 +120,32 @@ export const Dashboard = ({ setVerify }) => {
           </nav>
 
           <ul className="vitrine__ul">
+            {todo.length === 0 ? (
+              <div className="container__none">
+                <li className="card exit none">
+                  <div className="content__none">
+                    <p id="fist">.</p>
+                    <p id="last">.</p>
+                  </div>
+                </li>
+
+                <li className="card exit none">
+                  <div className="content__none">
+                    <p id="fist">.</p>
+                    <p id="last">.</p>
+                  </div>
+                </li>
+
+                <li className="card exit none">
+                  <div className="content__none">
+                    <p id="fist">.</p>
+                    <p id="last">.</p>
+                  </div>
+                </li>
+              </div>
+            ) : (
+              ""
+            )}
             {todo.map((info, index) =>
               info.type === "put" ? (
                 <li key={index} className="card entry">
