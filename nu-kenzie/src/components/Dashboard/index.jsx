@@ -86,6 +86,7 @@ export const Dashboard = ({ setVerify }) => {
               <input
                 type="text"
                 value={title}
+                required="required"
                 placeholder="Digite aqui sua descrição"
                 onChange={(event) => setTitle(event.target.value)}
               />
@@ -97,7 +98,8 @@ export const Dashboard = ({ setVerify }) => {
                 <label htmlFor="">Valor</label>
                 <input
                   type="number"
-                  value={value}
+                  value={value === 0 ? "" : value}
+                  required="required"
                   placeholder="1"
                   onChange={(event) => setValue(event.target.value)}
                 />
