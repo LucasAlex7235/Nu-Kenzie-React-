@@ -400,6 +400,12 @@ header {
   max-width: 440px;
 
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.vitrine__ul .card .card-value figure span:hover {
+  background-color: var(--gray-3);
+  transition: 0.5s;
 }
 
 @media (min-width: 440px) {
