@@ -124,7 +124,7 @@ export const Dashboard = ({ setVerify }) => {
           <footer className="footer__value">
             <div className="footer__value-value">
               <p>Valor total:</p>
-              <span>{valueAll()}</span>
+              <span>{`R$ ${valueAll()},00`}</span>
             </div>
             <span className="span__footer">O valor se refere ao saldo</span>
           </footer>
