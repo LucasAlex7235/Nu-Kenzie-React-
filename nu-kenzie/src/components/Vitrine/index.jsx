@@ -55,7 +55,7 @@ export const TodoListCards = ({ todo, temporaryList, handleTodo }) => {
             </div>
 
             <div className="card-value">
-              <span>{`R$ ${info.value},00`}</span>
+              <span>{`R$ -${info.value},00`}</span>
               <figure>
                 <span
                   class="material-symbols-outlined"
