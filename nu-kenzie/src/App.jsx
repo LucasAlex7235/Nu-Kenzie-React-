@@ -8,6 +8,8 @@ import { Dashboard } from "./components/Dashboard";
 
 function App() {
   const [verify, setVerify] = useState(false);
+  const [todo, setTodo] = useState([]);
+  const [temporaryList, setTemporaryList] = useState([]);
 
   const dashboard = () => {
     setVerify(true);
@@ -25,7 +27,13 @@ function App() {
   return (
     <div className="App">
       {verify ? (
-        <Dashboard setVerify={login} />
+        <Dashboard
+          todo={todo}
+          setTodo={setTodo}
+          temporaryList={temporaryList}
+          setTemporaryList={setTemporaryList}
+          setVerify={login}
+        />
       ) : (
         <Login setVerify={dashboard} />
       )}

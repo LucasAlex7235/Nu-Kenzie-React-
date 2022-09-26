@@ -4,10 +4,13 @@ import nuKenzie from "./assets/icon/nu-kenzie.png";
 import { useState } from "react";
 import { TodoListCards } from "../Vitrine";
 
-export const Dashboard = ({ setVerify }) => {
-  const [todo, setTodo] = useState([]);
-  const [temporaryList, setTemporaryList] = useState([]);
-
+export const Dashboard = ({
+  todo,
+  setTodo,
+  temporaryList,
+  setTemporaryList,
+  setVerify,
+}) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [value, setValue] = useState(0);
@@ -15,6 +18,7 @@ export const Dashboard = ({ setVerify }) => {
   const addTodo = (newTodo) => {
     setTodo([...todo, newTodo]);
     setTemporaryList([...temporaryList, newTodo]);
+
     setTitle("");
     setValue("");
   };
